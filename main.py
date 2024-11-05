@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from site_analyzer import analyze_competitor_site, generate_recommendations
+from site_analyzer import analyze_competitor_site, generate_recommendations, format_recommendations
 
 app = Flask(__name__)
 app.secret_key = '94751c46ad63108d32348baa2ae4d9e2'  # Required for session management
@@ -16,6 +16,9 @@ def project_details():
         'business_description': request.form['business_description'],
         'keywords': request.form['keywords'],
         'industry': request.form['industry'],
+        'sub_industry': request.form['sub_industry'],
+        'main_services': request.form['main_services'],
+        'sub_services': request.form['sub_services'],
         'solutions': request.form['solutions'],
         'skills': request.form['skills'],
         'target_audience': request.form['target_audience'],
