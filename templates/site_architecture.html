@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Site Architecture Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Architecture</title>
 </head>
 <body>
-    <h1>Site Architecture Analysis</h1>
+    <h1>Recommended Site Architecture for {{ business_info['business_name'] }}</h1>
     
-    <h2>Your Business Details</h2>
-    <p><strong>Business Name:</strong> {{ business_info.business_name }}</p>
-    <p><strong>
+    <h2>Recommended Navbar</h2>
+    <ul>
+        {% for item in recommended_navbar %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Recommended Structure</h2>
+    <ul>
+        {% for item in recommended_structure %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Competitor Analysis</h2>
+    {% for competitor in competitor_analysis %}
+        <h3>{{ competitor['url'] }}</h3>
+        <ul>
+            {% for link in competitor['structure'] %}
+                <li>{{ link }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>

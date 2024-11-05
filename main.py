@@ -18,6 +18,8 @@ def project_details():
         'industry': request.form['industry'],
         'solutions': request.form['solutions'],
         'skills': request.form['skills'],
+        'target_audience': request.form['target_audience'],
+        'service_goals': request.form['service_goals'],
     }
     session['business_info'] = business_info
     return render_template('competitors.html')
