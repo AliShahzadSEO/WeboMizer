@@ -37,5 +37,21 @@ def site_architecture():
                            recommended_structure=recommended_structure,
                            recommended_navbar=recommended_navbar)
 
+@app.route('/competitors', methods=['POST'])
+def competitors():
+    business_info = {
+        'business_name': request.form['business_name'],
+        'business_url': request.form['business_url'],
+        'business_description': request.form['business_description'],
+        'keywords': request.form['keywords'],
+        'industry': request.form['industry'],
+        'solutions': request.form['solutions'],
+        'skills': request.form['skills'],
+    }
+    session['business_info'] = business_info
+    return render_template('competitors.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
