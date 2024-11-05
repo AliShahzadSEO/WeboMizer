@@ -4,49 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeboMizer</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#project_type').change(function() {
-                const projectType = $(this).val();
-                $.post('/get_categories', { project_type: projectType }, function(data) {
-                    // Update Main Category dropdown
-                    $('#main_category').empty();
-                    $('#main_category').append('<option value="">Select Main Category</option>');
-                    data.categories.forEach(function(category) {
-                        $('#main_category').append('<option value="' + category + '">' + category + '</option>');
-                    });
-                });
-            });
-
-            $('#main_category').change(function() {
-                const mainCategory = $(this).val();
-                $.post('/get_subcategories', { category: mainCategory }, function(data) {
-                    // Update Subcategory dropdown
-                    $('#subcategory').empty();
-                    $('#subcategory').append('<option value="">Select Subcategory</option>');
-                    data.subcategories.forEach(function(subcategory) {
-                        $('#subcategory').append('<option value="' + subcategory + '">' + subcategory + '</option>');
-                    });
-                });
-            });
-
-            $('#subcategory').change(function() {
-                const subcategory = $(this).val();
-                $.post('/get_services', { subcategory: subcategory }, function(data) {
-                    // Update Service dropdown
-                    $('#service').empty();
-                    $('#service').append('<option value="">Select Service</option>');
-                    data.services.forEach(function(service) {
-                        $('#service').append('<option value="' + service + '">' + service + '</option>');
-                    });
-                });
-            });
-        });
-    </script>
 </head>
 <body>
-    <form action="/project_details" method="POST">
+    <h1>Enter Your Business Details</h1>
+    <form action="/competitors" method="POST">
         <label for="business_name">Business Name:</label>
         <input type="text" name="business_name" required>
 
@@ -58,30 +19,6 @@
 
         <label for="keywords">Important Keywords:</label>
         <input type="text" name="keywords" required>
-
-        <label for="project_type">Project Type:</label>
-        <select id="project_type" name="project_type">
-            <option value="">Select Project Type</option>
-            <!-- Options should be filled from your database -->
-        </select>
-
-        <label for="main_category">Main Category:</label>
-        <select id="main_category" name="main_category">
-            <option value="">Select Main Category</option>
-            <!-- Options will be filled based on project type -->
-        </select>
-
-        <label for="subcategory">Subcategory:</label>
-        <select id="subcategory" name="subcategory">
-            <option value="">Select Subcategory</option>
-            <!-- Options will be filled based on main category -->
-        </select>
-
-        <label for="service">Service:</label>
-        <select id="service" name="service">
-            <option value="">Select Service</option>
-            <!-- Options will be filled based on subcategory -->
-        </select>
 
         <button type="submit">Next</button>
     </form>
