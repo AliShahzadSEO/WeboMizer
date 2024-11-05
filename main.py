@@ -42,13 +42,13 @@ def site_architecture():
         analysis = analyze_competitor_site(url.strip())
         competitor_analysis.append(analysis)
     
-    recommended_structure, recommended_navbar = generate_recommendations(business_info, competitor_analysis)
+    recommended_structure, navbar = generate_recommendations(business_info, competitor_analysis)
+    formatted_recommendations = format_recommendations(recommended_structure, navbar)
     
     return render_template('site_architecture.html',
-                           business_info=business_info,
-                           competitor_analysis=competitor_analysis,
-                           recommended_structure=recommended_structure,
-                           recommended_navbar=recommended_navbar)
+                         business_info=business_info,
+                         competitor_analysis=competitor_analysis,
+                         recommendations=formatted_recommendations)
 
 if __name__ == '__main__':
     app.run(debug=True)
