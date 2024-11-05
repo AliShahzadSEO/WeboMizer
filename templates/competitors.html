@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Enter Competitors' URLs</h1>
-    <form action="/site_architecture" method="post">
+    <form action="{{ url_for('competitors') }}" method="post">
         <label for="competitor_urls">Competitors' URLs (separate with commas):</label>
         <input type="text" id="competitor_urls" name="competitor_urls" required>
         <br>

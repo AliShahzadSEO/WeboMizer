@@ -9,34 +9,4 @@
     
     <h2>Your Business Details</h2>
     <p><strong>Business Name:</strong> {{ business_info.business_name }}</p>
-    <p><strong>Business URL:</strong> {{ business_info.business_url }}</p>
-    <p><strong>Description:</strong> {{ business_info.business_description }}</p>
-    <p><strong>Keywords:</strong> {{ business_info.keywords }}</p>
-    
-    <h2>Competitor Analysis</h2>
-    {% for competitor in competitor_analysis %}
-    <h3>{{ competitor.url }}</h3>
-    <h4>Site Structure:</h4>
-    <ul>
-        {% for item in competitor.structure %}
-        <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-    {% endfor %}
-    
-    <h2>Recommendations for Your Site</h2>
-    <h3>Suggested Site Structure:</h3>
-    <ul>
-        {% for item in recommended_structure %}
-        <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-    
-    <h3>Suggested Navbar:</h3>
-    <ul>
-        {% for item in recommended_navbar %}
-        <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <p><strong>
